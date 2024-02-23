@@ -1,2 +1,1 @@
-def hello():
-    return "Hello from mypa!"
+"""init file for myma package."""
