@@ -1,0 +1,41 @@
+[project]
+name = "myma"
+version = "0.1.0"
+description = "Original Python Package Manager Using Rye"
+authors = [
+    { name = "makinzm", email = "makinzm@makinzm.invalid" }
+]
+dependencies = [
+    "fire>=0.5.0",
+    "lizard>=1.17.10",
+    "ruff>=0.2.2",
+]
+readme = "readme.md"
+requires-python = ">= 3.8"
+
+[project.scripts]
+myma = 'myma.main:cli'
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.ruff.lint]
+select = [
+    "ALL"
+]
+ignore = [
+    "N802",     # Function Name
+    "N803",     # Argument Name
+    "N806",     # Variable Name
+    "N816",     # mixed Case Name
+    "N999",     # File name
+    "D205",     # Blank Line
+    "D415",     # End punctuation
+    "E501",     # line length
+    "TRY003",   # Try Specifying Message
+    "ANN204",   # __init__ return type
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
