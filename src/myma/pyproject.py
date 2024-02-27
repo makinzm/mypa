@@ -21,12 +21,12 @@ class PyProject:
         requirements = self._file["project"]["dependencies"]
         return [Requirement(r) for r in requirements]
 
-    def check_python_version(self: Self) -> bool:
+    def get_python_version(self: Self) -> str:
         """Check if the system python version matches the required version."""
         version_required = self._file["project"].get("requires-python")
         system_version = python_version()
         if version_required and system_version in SpecifierSet(version_required):
-            return True
+            return system_version
 
         err_msg = f"Python version {system_version} does not match the required version {version_required}"
         raise ValueError(err_msg)
